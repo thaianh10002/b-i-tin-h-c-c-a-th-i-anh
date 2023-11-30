@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beatles</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 0.5em 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Beatles</h1>
+    </header>
+    <nav>
+        <a href="#introduction">Giới Thiệu</a>
+        <a href="#albums">Albums</a>
+        <a href="#history">Lịch Sử</a>
+    </nav>
+    <main>
+        <section id="introduction">
+            <h2>Giới Thiệu</h2>
+            <p>
+                The Beatles là một ban nhạc rock người Anh, thành lập tại Liverpool vào năm 1960.
+                Ban nhạc gồm John Lennon, Paul McCartney, George Harrison và Ringo Starr.
+                Họ được coi là một trong những nhóm nhạc nổi tiếng và ảnh hưởng nhất trong lịch sử âm nhạc.
+            </p>
+            <img src="https://cdnmedia.baotintuc.vn/Upload/DmtgOUlHWBO5POIHzIwr1A/files/2019/08/08/03-TheBeatles.jpg" alt="The Beatles">
+        </section>
+
+        <section id="albums">
+            <h2>Albums</h2>
+            <p>
+                The Beatles đã phát hành nhiều album thành công và ghi danh tên mình trong lịch sử âm nhạc.
+                Một số album nổi tiếng bao gồm "Sgt. Pepper's Lonely Hearts Club Band", "Abbey Road" và "The White Album".
+            </p>
+            <img src="https://i0.wp.com/ontherecords.net/wp-content/uploads/2021/01/8D3383EE-C7DA-49F5-92C5-FA4567FE3D3F-scaled.jpeg?resize=2000%2C851&ssl=1" alt="Các bìa album của The Beatles">
+        </section>
+
+        <section id="history">
+            <h2>Lịch Sử</h2>
+            <p>
+                The Beatles đã trải qua một hành trình nghệ thuật và sự nghiệp đầy thăng trầm.
+                Từ sự nổi tiếng đến các tranh cãi và cuộc chia tay, họ đã để lại dấu ấn sâu sắc trong lòng người hâm mộ.
+            </p>
+            <img src="https://www.historic-newspapers.co.uk/wp-content/uploads/sites/5/2020/03/Beatles_ad_1965_just_the_beatles_crop.jpg" alt="Lịch sử của The Beatles">
+        </section>
+
+        <!-- Trang con với 3 đường link khác nhau -->
+        <section id="links" class="hidden">
+            <h2>Đường Link</h2>
+            <ul>
+                <li><a href="#link1">Link 1</a></li>
+                <li><a href="#link2">Link 2</a></li>
+                <li><a href="#link3">Link 3</a></li>
+            </ul>
+        </section>
+
+        <!-- Trang con với nội dung của Đường Link 1 -->
+        <section id="link1" class="hidden">
+            <h2>Link 1</h2>
+            <p>
+                Nội dung của đường link 1 về The Beatles.
+            </p>
+        </section>
+
+        <!-- Trang con với nội dung của Đường Link 2 -->
+        <section id="link2" class="hidden">
+            <h2>Link 2</h2>
+            <p>
+                Nội dung của đường link 2 về The Beatles.
+            </p>
+        </section>
+
+        <!-- Trang con với nội dung của Đường Link 3 -->
+        <section id="link3" class="hidden">
+            <h2>Link 3</h2>
+            <p>
+                Nội dung của đường link 3 về The Beatles.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 The Beatles</p>
+    </footer>
+
+    <script>
+        // JavaScript để hiển thị và ẩn trang con
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+
+            // Xử lý sự kiện khi nhấp vào các liên kết của thanh điều hướng
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetSection = this.getAttribute('href').substring(1);
+                    showSection(targetSection);
+                });
+            });
+
+            // Xử lý sự kiện khi nhấp vào các liên kết của trang con "Đường Link"
+            document.querySelectorAll('#links a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetSection = this.getAttribute('href').substring(1);
+                    showSection(targetSection);
+                });
+            });
+
+            // Hàm hiển thị một section và ẩn các section khác
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
